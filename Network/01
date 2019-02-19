@@ -1,0 +1,2 @@
+#Récupérez la liste des interfaces réseau de la machine sans details.
+ifcongig -l
