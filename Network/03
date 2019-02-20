@@ -1,1 +1,2 @@
+# Display MAC address of WI-FI card
 ifconfig -L en1 | grep "ether " | cut -d " " -f 2

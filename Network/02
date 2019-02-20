@@ -1,1 +1,2 @@
+# Display ethernet interface characteristics
 ifconfig -L en0 | grep "ether " | cut -d " " -f 2
