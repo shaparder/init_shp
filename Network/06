@@ -1,1 +1,2 @@
+# Find the whole path of resolv.conf file
 /var/run/resolv.conf

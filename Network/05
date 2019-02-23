@@ -1,2 +1,2 @@
 # Identify the IP address of the DNS of that following url: slash16.org
-nslookup slash16.org | grep Address | awk '{print $2}'
+dig slash16.org | grep SERVER | cut -d " " -f 3 | cut -c -7
