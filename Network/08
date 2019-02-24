@@ -1,1 +1,2 @@
-nslookup slash16.org | grep
+When using command `whois slash16.org`, we can see that DNS servers use AWSDNS,
+which are Amazon Web Services's servers.

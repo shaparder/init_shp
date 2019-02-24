@@ -1,0 +1,3 @@
+#using nslookup of the dhcp address before we obtain
+name = dhcp.42.us.org.
+#it's a dhcp server
