@@ -1,0 +1,33 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    04                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: osfally <osfally@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/02/25 19:31:31 by osfally           #+#    #+#              #
+#    Updated: 2019/02/25 20:16:33 by osfally          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#!/bin/bash
+
+TARGET=/etc/crontab
+BACKUP=/etc/.crontab_backup
+
+if [ ! -e $BACKUP ]; then
+	echo "Backup not present, creating one with the current crontab file"
+	sudo cp $TARGET $BACKUP
+	exit 0
+fi
+
+MD5=md5sum $TARGET | awk '{print $1}'
+MD5_BACKUP=md5sum $BACKUP | awk '{print $1}'
+
+if [ MD5 != MD5_BACKUP]; then
+	mail -s "Crontab report." shaparder.contact@gmail.com <<< 'Crontab has been modified today !'
+fi
+
+# This needs to have the package 'mailutils' installed in order to use the command 'mail'.
+# Add this to crontab -e :
+# 0 0 * * * /path/to/file
